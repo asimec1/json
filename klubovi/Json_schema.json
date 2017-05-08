@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Klubovi",
+  "description": "Popis nogometnih klubova",
+  "type": "object",
+  "properties": {
+    "klub": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "naziv": {
+            "type": "string"
+          },
+          "mjesto": {
+            "type": "string"
+          },
+          "godinaOsnutka": {
+            "type": "string"
+          },
+          "stadion": {
+            "type": "object",
+            "properties": {
+              "nazivStadiona": {
+                "type": "string"
+              },
+              "kapacitet": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "nazivStadiona",
+              "kapacitet"
+            ]
+          }
+        },
+        "required": [
+          "naziv",
+          "mjesto",
+          "godinaOsnutka",
+          "stadion"
+        ]
+      }
+    }
+  },
+  "required": [
+    "klub"
+  ]
+}

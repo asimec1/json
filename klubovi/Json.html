@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+</head>
+<body>
+	<h1>Popis klubova</h1>
+	<hr/>
+	<br/>
+    <div id="placeholder"></div>
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script>
+	$.getJSON('Klubovi.json', function(data) {
+        var output="<p>";
+        for (var i in data.klub) {
+            output+="<p><b>Naziv:</b> " + data.klub[i].naziv + "<br/> <b/>Mjesto: </b>" + data.klub[i].mjesto + "<br/> <b>Godina osnutka: </b>" +
+			data.klub[i].godinaOsnutka + "<br/> <b>Stadion: </b> " + data.klub[i].stadion.nazivStadiona + "<br/> <b>Kapacitet stadiona: </b> " + data.klub[i].stadion.kapacitet;
+        }
+
+        output+="</p>";
+        document.getElementById("placeholder").innerHTML=output;
+		
+	
+  
+	});
+    </script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="Klubovi.xslt"?>
+<klubovi xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Klubovi_schema.xsd"> 
+	<klub>
+        <naziv>Chelsea F.C.</naziv>
+        <mjesto>London</mjesto>
+		<godinaOsnutka>1905</godinaOsnutka>
+        <stadion>
+			<nazivStadiona>Stamford Bridge</nazivStadiona>
+			<kapacitet>41768</kapacitet>
+		</stadion>
+    </klub>
+	<klub>
+        <naziv>Liverpool F.C.</naziv>
+        <mjesto>Liverpool</mjesto>
+		<godinaOsnutka>1892</godinaOsnutka>
+        <stadion>
+			<nazivStadiona>Anfield</nazivStadiona>
+			<kapacitet>45276</kapacitet>
+		</stadion>
+    </klub>
+	<klub>
+        <naziv>Manchester City F.C.</naziv>
+        <mjesto>Manchester</mjesto>
+		<godinaOsnutka>1880</godinaOsnutka>
+        <stadion>
+			<nazivStadiona>Etihad Stadium</nazivStadiona>
+			<kapacitet>55057</kapacitet>
+		</stadion>
+    </klub>
+	<klub>
+        <naziv>Juventus F.C.</naziv>
+        <mjesto>Turin</mjesto>
+		<godinaOsnutka>1897</godinaOsnutka>
+        <stadion>
+			<nazivStadiona>Juventus Stadium</nazivStadiona>
+			<kapacitet>41475</kapacitet>
+		</stadion>
+    </klub>
+	<klub>
+        <naziv>FC Barcelona</naziv>
+        <mjesto>Barcelona</mjesto>
+		<godinaOsnutka>1899</godinaOsnutka>
+        <stadion>
+			<nazivStadiona>Camp Nou</nazivStadiona>
+			<kapacitet>99354</kapacitet>
+		</stadion>
+    </klub>
+	<klub>
+        <naziv>Real Madrid C.F.</naziv>
+        <mjesto>Madrid</mjesto>
+		<godinaOsnutka>1902</godinaOsnutka>
+        <stadion>
+			<nazivStadiona>Santiago Bernabeu Stadium</nazivStadiona>
+			<kapacitet>85454</kapacitet>
+		</stadion>
+    </klub>
+	<klub>
+        <naziv>Atletico Madrid</naziv>
+        <mjesto>Madrid</mjesto>
+		<godinaOsnutka>1903</godinaOsnutka>
+        <stadion>
+			<nazivStadiona>Vicente Calderón Stadium</nazivStadiona>
+			<kapacitet>54960</kapacitet>
+		</stadion>
+    </klub>
+	<klub>
+        <naziv>Paris Saint-Germain F.C.</naziv>
+        <mjesto>Paris</mjesto>
+		<godinaOsnutka>1970</godinaOsnutka>
+        <stadion>
+			<nazivStadiona>Parc des Princes</nazivStadiona>
+			<kapacitet>48712</kapacitet>
+		</stadion>
+    </klub>
+	<klub>
+        <naziv>Manchester United F.C.</naziv>
+        <mjesto>Manchester</mjesto>
+		<godinaOsnutka>1878</godinaOsnutka>
+        <stadion>
+			<nazivStadiona>Old Trafford</nazivStadiona>
+			<kapacitet>75653</kapacitet>
+		</stadion>
+    </klub>
+	<klub>
+        <naziv>Arsenal F.C.</naziv>
+        <mjesto>London</mjesto>
+		<godinaOsnutka>1886</godinaOsnutka>
+        <stadion>
+			<nazivStadiona>Emirates Stadium</nazivStadiona>
+			<kapacitet>60260</kapacitet>
+		</stadion>
+    </klub>
+	
+	
+	
+</klubovi>

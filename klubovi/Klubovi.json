@@ -1,0 +1,94 @@
+{
+    "klub": [
+      {
+        "naziv": "Chelsea F.C.",
+        "mjesto": "London",
+        "godinaOsnutka": "1905",
+        "stadion": {
+          "nazivStadiona": "Stamford Bridge",
+          "kapacitet": "41768"
+        }
+      },
+      {
+        "naziv": "Liverpool F.C.",
+        "mjesto": "Liverpool",
+        "godinaOsnutka": "1892",
+        "stadion": {
+          "nazivStadiona": "Anfield",
+          "kapacitet": "45276"
+        }
+      },
+      {
+        "naziv": "Manchester City F.C.",
+        "mjesto": "Manchester",
+        "godinaOsnutka": "1880",
+        "stadion": {
+          "nazivStadiona": "Etihad Stadium",
+          "kapacitet": "55057"
+        }
+      },
+      {
+        "naziv": "Juventus F.C.",
+        "mjesto": "Turin",
+        "godinaOsnutka": "1897",
+        "stadion": {
+          "nazivStadiona": "Juventus Stadium",
+          "kapacitet": "41475"
+        }
+      },
+      {
+        "naziv": "FC Barcelona",
+        "mjesto": "Barcelona",
+        "godinaOsnutka": "1899",
+        "stadion": {
+          "nazivStadiona": "Camp Nou",
+          "kapacitet": "99354"
+        }
+      },
+      {
+        "naziv": "Real Madrid C.F.",
+        "mjesto": "Madrid",
+        "godinaOsnutka": "1902",
+        "stadion": {
+          "nazivStadiona": "Santiago Bernabeu Stadium",
+          "kapacitet": "85454"
+        }
+      },
+      {
+        "naziv": "Atletico Madrid",
+        "mjesto": "Madrid",
+        "godinaOsnutka": "1903",
+        "stadion": {
+          "nazivStadiona": "Vicente Calderón Stadium",
+          "kapacitet": "54960"
+        }
+      },
+      {
+        "naziv": "Paris Saint-Germain F.C.",
+        "mjesto": "Paris",
+        "godinaOsnutka": "1970",
+        "stadion": {
+          "nazivStadiona": "Parc des Princes",
+          "kapacitet": "48712"
+        }
+      },
+      {
+        "naziv": "Manchester United F.C.",
+        "mjesto": "Manchester",
+        "godinaOsnutka": "1878",
+        "stadion": {
+          "nazivStadiona": "Old Trafford",
+          "kapacitet": "75653"
+        }
+      },
+      {
+        "naziv": "Arsenal F.C.",
+        "mjesto": "London",
+        "godinaOsnutka": "1886",
+        "stadion": {
+          "nazivStadiona": "Emirates Stadium",
+          "kapacitet": "60260"
+        }
+      }
+    ]
+}

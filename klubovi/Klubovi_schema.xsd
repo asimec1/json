@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" >
+	<xs:element name="klubovi">
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element name="klub">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="naziv" type="xs:string"/>
+							<xs:element name="mjesto" type="xs:string"/>
+							<xs:element name="godinaOsnutka" type="xs:integer"/>
+							<xs:element name="stadion">
+								<xs:complexType>
+									<xs:sequence>
+											<xs:element name="nazivStadiona" type="xs:string"/>
+											<xs:element name="kapacitet" type="xs:integer"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
