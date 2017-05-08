@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JSON</title>
+</head>
+<body>
+	<h1>JSON objekt</h1>
+	<p id="primjer"></p>
+		<script>
+			var myObj, x;
+			myObj = { "ime":"Petar", "godine":30, "adresa":null };
+			x = myObj.ime;
+			x += " " + myObj.godine + " godina";
+			document.getElementById("primjer").innerHTML = x;
+		</script>
+</body>
+</html>
