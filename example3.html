@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JSON</title>
+</head>
+<body>
+	<h1>JSON objekt</h1>
+	<p id="primjer"></p>
+		<script>
+			var myObj, x;
+			myObj = { "ime":"Petar", "godine":30, "auti":["Ford", "BMW", "Fiat"] };
+			x = myObj.ime;
+			x += " " + myObj.godine + " godina";
+			x += "<br>Auti:<ul>";
+			
+			for (i in myObj.auti) {
+				x += "<li>" + myObj.auti[i] + "</li>";
+			}
+			x += "</ul>";
+			document.getElementById("primjer").innerHTML = x;
+		</script>
+</body>
+</html>
