@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<Osoba xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="primjer1.xsd">
+	<Ime>Ana</Ime>
+	<Prezime>Peterlic</Prezime>
+	<Kontakt>
+		<Mobitel>02249 77846</Mobitel>
+		<Fax>156798465</Fax>
+	</Kontakt>
+</Osoba>

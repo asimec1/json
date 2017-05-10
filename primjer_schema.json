@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "Osoba": {
+      "type": "object",
+      "properties": {
+        "Ime": {
+          "type": "string"
+        },
+        "Prezime": {
+          "type": "string"
+        },
+        "Kontakt": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "Mobitel": {
+                "type": "string"
+              },
+              "Fax": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "Mobitel",
+              "Fax"
+            ]
+          }
+        }
+      },
+      "required": [
+        "Ime",
+        "Prezime",
+        "Kontakt"
+      ]
+    }
+  },
+  "required": [
+    "Osoba"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "Osoba": {
+    "Ime": "Ana",
+    "Prezime": "Peterlic",
+    "Kontakt": [
+      {
+        "Mobitel": "02249 77846",
+        "Fax": "156798465"
+      }
+    ]
+  }
+}
