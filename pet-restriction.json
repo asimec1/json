@@ -1,0 +1,27 @@
+{
+"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "Mačka",
+	"properties": {
+		"ime": {
+			"type": "string",
+			"minLength": 3,
+			"maxLength" : 20
+		},
+		"dob": {
+			"type": "number",
+			"opis": "Dob vaše mačke u godinama.",
+			"minimum" : 0
+		},
+		"declawed": {
+			"type": "boolean"
+		},
+		"opis": {
+			"type": "string"
+		}
+	},
+	"required": [
+		"ime",
+		"dob",
+		"declawed"
+	]
+}
