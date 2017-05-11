@@ -1,0 +1,176 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "Invoice": {
+      "type": "object",
+      "properties": {
+        "BrojRacuna": {
+          "type": "string"
+        },
+        "DatumIzdavanja": {
+          "type": "date"
+        },
+        "VrijemeIzdavanja": {
+          "type": "time"
+        },
+        "Napomena": {
+          "type": "string"
+        },
+        "RokZaPlacanje": {
+          "type": "date"
+        },
+        "KodValute": {
+          "type": "string"
+        },
+        "BrojStavki": {
+          "type": "int"
+        },
+        "PeriodNaplate": {
+          "type": "object",
+          "properties": {
+            "PocetniDatum": {
+              "type": "date"
+            },
+            "ZavrsniDatum": {
+              "type": "date"
+            }
+          },
+          "required": [
+            "PocetniDatum",
+            "ZavrsniDatum"
+          ]
+        },
+        "IzdavateljRacuna": {
+          "type": "object",
+          "properties": {
+            "OIB": {
+              "type": "int"
+            },
+            "NazivTvrtke": {
+              "type": "string"
+            },
+            "Racunovodja": {
+              "type": "string"
+            },
+            "Adresa": {
+              "type": "string"
+            },
+            "Mjesto": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "OIB",
+            "NazivTvrtke",
+            "Racunovodja",
+            "Adresa",
+            "Mjesto"
+          ]
+        },
+        "Kupac": {
+          "type": "object",
+          "properties": {
+            "OIB": {
+              "type": "int"
+            },
+            "NazivTvrtke": {
+              "type": "string"
+            },
+            "Adresa": {
+              "type": "string"
+            },
+            "Mjesto": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "OIB",
+            "NazivTvrtke",
+            "Adresa",
+            "Mjesto"
+          ]
+        },
+        "PodaciZaPlacanje": {
+          "type": "object",
+          "properties": {
+            "PozivNaBroj": {
+              "type": "string"
+            },
+            "ModelPlacanja": {
+              "type": "string"
+            },
+            "OpisPlacanja": {
+              "type": "string"
+            },
+            "IBAN": {
+              "type": "string"
+            },
+            "IznosZaUplatu": {
+              "type": "float"
+            }
+          },
+          "required": [
+            "PozivNaBroj",
+            "ModelPlacanja",
+            "OpisPlacanja",
+            "IBAN",
+            "IznosZaUplatu"
+          ]
+        },
+        "Stavka": {
+          "type": "object",
+          "properties": {
+            "SifraArtikla": {
+              "type": "int"
+            },
+            "Naziv": {
+              "type": "string"
+            },
+            "Kolicina": {
+              "type": "int"
+            },
+            "JedinicnaCijena": {
+              "type": "float"
+            },
+            "UkupnaCijenaBezPoreza": {
+              "type": "float"
+            },
+            "PoreznaStopa": {
+              "type": "string"
+            },
+            "CijenaSPorezom": {
+              "type": "float"
+            }
+          },
+          "required": [
+            "SifraArtikla",
+            "Naziv",
+            "Kolicina",
+            "JedinicnaCijena",
+            "UkupnaCijenaBezPoreza",
+            "PoreznaStopa",
+            "CijenaSPorezom"
+          ]
+        }
+      },
+      "required": [
+        "BrojRacuna",
+        "DatumIzdavanja",
+        "VrijemeIzdavanja",
+        "Napomena",
+        "RokZaPlacanje",
+        "KodValute",
+        "BrojStavki",
+        "PeriodNaplate",
+        "IzdavateljRacuna",
+        "Kupac",
+        "PodaciZaPlacanje",
+        "Stavka"
+      ]
+    }
+  },
+  "required": [
+    "Invoice"
+  ]
+}
