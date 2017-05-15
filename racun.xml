@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Invoice >
+  <BrojRacuna>123</BrojRacuna>
+  <DatumIzdavanja>2016-06-01</DatumIzdavanja>
+  <VrijemeIzdavanja>12:00:00</VrijemeIzdavanja>
+  <Napomena>Molimo da račun platite do datuma roka plaćanja</Napomena>
+  <RokZaPlacanje>2016-06-20</RokZaPlacanje>
+  <KodValute>HRK</KodValute>  
+  <BrojStavki>1</BrojStavki>
+  <PeriodNaplate>
+    <PocetniDatum>2016-05-01</PocetniDatum>
+    <ZavrsniDatum>2016-05-31</ZavrsniDatum>
+  </PeriodNaplate>  
+  <IzdavateljRacuna>
+    <OIB>12345678901</OIB>
+    <NazivTvrtke>Izdavatelj d.o.o.</NazivTvrtke>     
+    <Racunovodja>Pero P</Racunovodja>
+    <Adresa>Ulica 1</Adresa>
+    <Mjesto>Zagreb</Mjesto>
+  </IzdavateljRacuna>
+  <Kupac>
+    <OIB>10987654321</OIB>    
+    <NazivTvrtke>Primatelj d.o.o.</NazivTvrtke>
+    <Adresa>Avenija 1</Adresa>
+    <Mjesto>Zagreb</Mjesto>
+  </Kupac>  
+  <PodaciZaPlacanje>
+    <PozivNaBroj>1234-1234</PozivNaBroj>
+    <ModelPlacanja>HR00</ModelPlacanja>
+    <OpisPlacanja>Plaćanje usluge za svibanj</OpisPlacanja>
+    <IBAN>HR2430950450940590459</IBAN>
+    <IznosZaUplatu>100.00</IznosZaUplatu>
+  </PodaciZaPlacanje>  
+  <Stavka>
+    <SifraArtikla>123</SifraArtikla>
+    <Naziv>Usluga</Naziv>
+    <Kolicina>2</Kolicina>
+    <JedinicnaCijena>50.0</JedinicnaCijena>
+    <UkupnaCijenaBezPoreza>100.00</UkupnaCijenaBezPoreza>
+    <PoreznaStopa>25%</PoreznaStopa>
+    <CijenaSPorezom>125.00</CijenaSPorezom>
+  </Stavka>
+</Invoice>
