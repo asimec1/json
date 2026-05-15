@@ -38,13 +38,69 @@ $json = '{
 $podatci = json_decode($json, true);
 
 $brojPrikazanih = 0;
-?>
+$autiHtml = "";
 
+foreach ($podatci["auti"] as $auto) {
+
+    if ($auto["registriran"] == true) {
+
+        $brojPrikazanih++;
+
+        $modeliHtml = "";
+
+        foreach ($auto["models"] as $model) {
+            $modeliHtml .= "<li>" . $model . "</li>";
+        }
+
+        $autiHtml .= "
+            <div class='car'>
+                <h3>" . $auto["marka"] . "</h3>
+
+                <div class='car-data'>
+                    <div class='data-box'>
+                        <span>Godina</span>
+                        <strong>" . $auto["godina"] . "</strong>
+                    </div>
+
+                    <div class='data-box'>
+                        <span>Boja</span>
+                        <strong>" . $auto["boja"] . "</strong>
+                    </div>
+                </div>
+
+                <div class='status'>Registriran</div>
+
+                <div class='models'>
+                    <h4>Modeli</h4>
+                    <ul>
+                        " . $modeliHtml . "
+                    </ul>
+                </div>
+            </div>
+        ";
+    }
+}
+
+if ($brojPrikazanih > 0) {
+    $rezultatHtml = "
+        <div class='result'>
+            Ukupan broj prikazanih automobila: " . $brojPrikazanih . "
+        </div>
+    ";
+} else {
+    $rezultatHtml = "
+        <div class='empty'>
+            Nema automobila koji zadovoljavaju uvjet filtriranja.
+        </div>
+    ";
+}
+
+print "
 <!DOCTYPE html>
-<html lang="hr">
+<html lang='hr'>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Filtriranje JSON podataka</title>
 
     <style>
@@ -54,192 +110,284 @@ $brojPrikazanih = 0;
 
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f1f5f9;
-            color: #1f2937;
-            padding: 40px;
+            font-family: Verdana, Arial, sans-serif;
+            background: #101820;
+            color: #f4f4f4;
+            min-height: 100vh;
+            padding: 32px;
         }
 
-        .container {
-            max-width: 1100px;
+        .page {
+            max-width: 1150px;
             margin: 0 auto;
         }
 
-        .header {
-            background: #ffffff;
+        .top {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 24px;
+            margin-bottom: 28px;
+        }
+
+        .intro {
+            background: linear-gradient(135deg, #f2aa4c 0%, #d96c06 100%);
+            color: #101820;
             padding: 30px;
-            border-radius: 18px;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-            border-left: 8px solid #2563eb;
+            border-radius: 8px 34px 8px 34px;
+            box-shadow: 8px 8px 0 #000000;
         }
 
-        .header h1 {
-            margin: 0 0 10px 0;
-            font-size: 34px;
-            color: #111827;
+        .intro h1 {
+            margin: 0 0 14px 0;
+            font-size: 36px;
+            letter-spacing: -1px;
         }
 
-        .header p {
-            margin: 8px 0;
+        .intro p {
+            margin: 0;
             font-size: 18px;
-            color: #4b5563;
+            line-height: 1.6;
         }
 
-        .osoba {
-            margin-top: 20px;
+        .person {
+            background: #1f2933;
+            border: 2px solid #f2aa4c;
+            padding: 24px;
+            border-radius: 24px 8px 24px 8px;
+            box-shadow: 8px 8px 0 #000000;
+        }
+
+        .person h2 {
+            margin: 0 0 18px 0;
+            font-size: 24px;
+            color: #f2aa4c;
+        }
+
+        .person-row {
             display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 16px;
+            border-bottom: 1px dashed rgba(255,255,255,0.25);
+            padding: 10px 0;
         }
 
-        .osoba span {
-            background: #eff6ff;
-            color: #1d4ed8;
-            padding: 10px 14px;
-            border-radius: 999px;
+        .person-row:last-child {
+            border-bottom: none;
+        }
+
+        .label {
+            color: #a7b0ba;
+        }
+
+        .value {
             font-weight: bold;
+            color: #ffffff;
         }
 
-        .info {
-            background: #fff7ed;
-            border-left: 6px solid #f97316;
-            padding: 18px 22px;
-            border-radius: 14px;
-            margin-bottom: 30px;
+        .note {
+            background: #16212c;
+            border-left: 6px solid #f2aa4c;
+            padding: 18px 20px;
+            margin-bottom: 28px;
             font-size: 17px;
+            line-height: 1.6;
+            border-radius: 0 16px 16px 0;
         }
 
-        .auti {
+        .cars-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 18px;
+        }
+
+        .cars-title h2 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .filter-badge {
+            background: #f2aa4c;
+            color: #101820;
+            padding: 9px 14px;
+            border-radius: 999px;
+            font-size: 14px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .cars {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .car {
+            position: relative;
+            background: #f4f4f4;
+            color: #101820;
+            padding: 24px;
+            border-radius: 18px;
+            box-shadow: 8px 8px 0 #000000;
+            overflow: hidden;
+        }
+
+        .car:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: repeating-linear-gradient(90deg, #f2aa4c 0 18px, #101820 18px 36px);
+        }
+
+        .car h3 {
+            margin: 12px 0 18px 0;
+            font-size: 30px;
+        }
+
+        .car-data {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
+            gap: 12px;
+            margin-bottom: 18px;
         }
 
-        .auto-kartica {
-            background: #ffffff;
-            border-radius: 18px;
-            padding: 26px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-            border-top: 7px solid #16a34a;
+        .data-box {
+            background: #e8edf2;
+            padding: 12px;
+            border-radius: 12px;
         }
 
-        .auto-kartica h2 {
-            margin: 0 0 18px 0;
-            font-size: 28px;
-            color: #111827;
+        .data-box span {
+            display: block;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: #506070;
+            margin-bottom: 5px;
         }
 
-        .auto-kartica p {
+        .data-box strong {
             font-size: 18px;
-            margin: 10px 0;
         }
 
-        .oznaka {
+        .status {
             display: inline-block;
-            margin-top: 12px;
-            padding: 8px 14px;
-            border-radius: 999px;
-            background: #dcfce7;
-            color: #166534;
+            background: #1f7a3f;
+            color: #ffffff;
+            padding: 8px 13px;
+            border-radius: 8px;
+            font-size: 14px;
             font-weight: bold;
-            font-size: 15px;
+            margin-bottom: 18px;
         }
 
-        .modeli {
-            margin-top: 18px;
-            padding: 18px;
-            background: #f8fafc;
-            border-radius: 14px;
+        .models {
+            border-top: 2px dashed #aab3bd;
+            padding-top: 16px;
         }
 
-        .modeli h3 {
+        .models h4 {
             margin: 0 0 12px 0;
-            font-size: 20px;
-            color: #334155;
+            font-size: 18px;
         }
 
-        .modeli ul {
+        .models ul {
+            list-style: none;
+            padding: 0;
             margin: 0;
-            padding-left: 22px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
         }
 
-        .modeli li {
-            font-size: 17px;
-            margin-bottom: 6px;
+        .models li {
+            background: #101820;
+            color: #f2aa4c;
+            padding: 8px 11px;
+            border-radius: 999px;
+            font-size: 14px;
         }
 
-        .rezultat {
-            margin-top: 30px;
-            background: #ecfdf5;
-            border-left: 6px solid #16a34a;
+        .result {
+            margin-top: 28px;
+            background: #f2aa4c;
+            color: #101820;
             padding: 18px 22px;
             border-radius: 14px;
             font-size: 18px;
             font-weight: bold;
-            color: #166534;
+            box-shadow: 6px 6px 0 #000000;
         }
 
-        .nema-rezultata {
-            background: #fee2e2;
-            border-left: 6px solid #dc2626;
+        .empty {
+            background: #4b1111;
+            border: 2px solid #ff9b9b;
+            color: #ffffff;
             padding: 20px;
             border-radius: 14px;
             font-size: 18px;
-            color: #991b1b;
-            font-weight: bold;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 850px) {
             body {
                 padding: 22px;
             }
 
-            .header h1 {
-                font-size: 30px;
-            }
-
-            .header p {
-                font-size: 18px;
-            }
-
-            .auti {
+            .top {
                 grid-template-columns: 1fr;
             }
 
-            .auto-kartica {
-                padding: 22px;
+            .cars {
+                grid-template-columns: 1fr;
             }
 
-            .auto-kartica h2 {
-                font-size: 26px;
-            }
-
-            .auto-kartica p,
-            .modeli li {
-                font-size: 18px;
+            .intro h1 {
+                font-size: 31px;
             }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 520px) {
             body {
-                padding: 16px;
+                padding: 14px;
             }
 
-            .header {
+            .intro {
                 padding: 22px;
+                border-radius: 8px 24px 8px 24px;
             }
 
-            .header h1 {
-                font-size: 28px;
+            .person {
+                padding: 20px;
             }
 
-            .osoba {
+            .person-row {
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            .cars-title {
+                align-items: flex-start;
                 flex-direction: column;
             }
 
-            .osoba span {
-                width: 100%;
+            .car {
+                padding: 20px;
+            }
+
+            .car h3 {
+                font-size: 26px;
+            }
+
+            .car-data {
+                grid-template-columns: 1fr;
+            }
+
+            .models li {
+                font-size: 15px;
             }
         }
     </style>
@@ -247,68 +395,58 @@ $brojPrikazanih = 0;
 
 <body>
 
-<div class="container">
+<div class='page'>
 
-    <div class="header">
-        <h1>Filtriranje JSON podataka</h1>
-        <p>Prikazuju se samo automobili koji su registrirani.</p>
+    <div class='top'>
 
-        <div class="osoba">
-            <span>Ime: <?php echo $podatci["ime"]; ?></span>
-            <span>Prezime: <?php echo $podatci["prezime"]; ?></span>
-            <span>Starost: <?php echo $podatci["starost"]; ?> godina</span>
+        <div class='intro'>
+            <h1>Filtriranje JSON podataka</h1>
+            <p>
+                Program čita JSON dokument i prikazuje samo automobile koji zadovoljavaju zadani uvjet.
+                U ovom primjeru prikazuju se samo registrirani automobili.
+            </p>
         </div>
+
+        <div class='person'>
+            <h2>Podaci o osobi</h2>
+
+            <div class='person-row'>
+                <span class='label'>Ime</span>
+                <span class='value'>" . $podatci["ime"] . "</span>
+            </div>
+
+            <div class='person-row'>
+                <span class='label'>Prezime</span>
+                <span class='value'>" . $podatci["prezime"] . "</span>
+            </div>
+
+            <div class='person-row'>
+                <span class='label'>Starost</span>
+                <span class='value'>" . $podatci["starost"] . " godina</span>
+            </div>
+        </div>
+
     </div>
 
-    <div class="info">
+    <div class='note'>
         Automobili koji nisu registrirani ne brišu se iz JSON dokumenta.
-        Oni se samo ne prikazuju u rezultatu.
+        Oni i dalje postoje u podacima, ali ih PHP preskače prilikom ispisa.
     </div>
 
-    <div class="auti">
-
-        <?php foreach ($podatci["auti"] as $auto): ?>
-
-            <?php if ($auto["registriran"] == true): ?>
-
-                <?php $brojPrikazanih++; ?>
-
-                <div class="auto-kartica">
-                    <h2><?php echo $auto["marka"]; ?></h2>
-
-                    <p><strong>Godina proizvodnje:</strong> <?php echo $auto["godina"]; ?></p>
-                    <p><strong>Boja:</strong> <?php echo $auto["boja"]; ?></p>
-
-                    <span class="oznaka">Registriran</span>
-
-                    <div class="modeli">
-                        <h3>Modeli</h3>
-
-                        <ul>
-                            <?php foreach ($auto["models"] as $model): ?>
-                                <li><?php echo $model; ?></li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
-                </div>
-
-            <?php endif; ?>
-
-        <?php endforeach; ?>
-
+    <div class='cars-title'>
+        <h2>Popis automobila</h2>
+        <div class='filter-badge'>Uvjet: registriran = true</div>
     </div>
 
-    <?php if ($brojPrikazanih > 0): ?>
-        <div class="rezultat">
-            Ukupan broj prikazanih automobila: <?php echo $brojPrikazanih; ?>
-        </div>
-    <?php else: ?>
-        <div class="nema-rezultata">
-            Nema automobila koji zadovoljavaju uvjet filtriranja.
-        </div>
-    <?php endif; ?>
+    <div class='cars'>
+        " . $autiHtml . "
+    </div>
+
+    " . $rezultatHtml . "
 
 </div>
 
 </body>
 </html>
+";
+?>
